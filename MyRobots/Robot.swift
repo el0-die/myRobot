@@ -8,20 +8,27 @@
 
 import Foundation
 
+
 class Robot {
-    let id : String
-    var hp : Int = 100
-    var speed : Int = 3
-    var position : (x : Int, y : Int) = (0,0)
+    var id : String
+    var hp : Int
+    var speed : Int
+    var position : (x : Int, y : Int)
     
-    init(id : String) {
+    init(id : String , hp : Int , speed : Int , position : (Int , Int)) {
         self.id = id
+        self.hp = hp
+        self.speed = speed
+        self.position = position
     }
     
+//Presentation of the Teammates
     
     func introdiuce() {
             print("Je suis le robot prénommé \(id). J'ai \(hp)pv, je peux me déplacer de maximum \(speed) cases par tour. Actuellement je me trouve à la case de coordonnées ( \(position.x) ; \(position.y) ).")
     }
+ 
+// Controlled Movement
     
     func move() {
         print("Où \(id) souhaite-t-il aller?")
@@ -56,7 +63,8 @@ class Robot {
         
     }
     
-   
+// Uncontrolled Movement
+    
     func seDeplacerAleatoirement(nbTour : Int) {
         var  nbDeTour : Int = 1
         
@@ -64,20 +72,20 @@ class Robot {
             nbDeTour += 1
             let randomNb = Int.random(in: 1...4)
                 if randomNb == 1 {
-                    position.x = position.x - Int.random(in: 0...speed)
-                    position.y = position.y + 0
+                    self.position.x = self.position.x - Int.random(in: 1...self.speed)
+                    self.position.y = self.position.y + 0
                 }else if randomNb == 2{
-                    position.x = position.x + 0
-                    position.y = position.y + Int.random(in: 0...speed)
+                    self.position.x = self.position.x + 0
+                    self.position.y = self.position.y + Int.random(in: 1...self.speed)
                 }else if randomNb == 3{
-                    position.x = position.x + Int.random(in: 0...speed)
-                    position.y = position.y + 0
+                    self.position.x = self.position.x + Int.random(in: 1...self.speed)
+                    self.position.y = self.position.y + 0
                 }else{
-                    position.x = position.x + 0
-                    position.y = position.y - Int.random(in: 0...speed)
+                    self.position.x = self.position.x + 0
+                    self.position.y = self.position.y - Int.random(in: 1...self.speed)
                 }
         }
-            print("Je suis \(id) et maintenant je me trouve ici : ( \(position.x) ; \(position.y) ).")
+        print("Moi, \(id)  je me trouve maintenant ici : ( \(self.position.x) ; \(self.position.y) )!")
     }
     
     
