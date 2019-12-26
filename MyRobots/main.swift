@@ -15,8 +15,17 @@ let gany = Robot(id: "Ganymède")
 let calli = Robot(id: "Callisto")
 
 let my4Robots = [io,europe, gany, calli]
-    my4Robots.forEach { Robot in
+
+ /*   my4Robots.forEach { Robot in
         return Robot.introdiuce()
 }
+
+    my4Robots.forEach { Robot in
+        return Robot.move()
+}
+*/
+     my4Robots.forEach { Robot in
+        return Robot.seDeplacerAleatoirement(nbTour: 20)
+    }
 
 
